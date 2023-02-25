@@ -49,3 +49,33 @@
 #     print(True)
 # else:
 #     print(False)
+
+
+
+# Решение от группы.
+def is_lucky_number(number: str) -> bool:
+    if number.isdigit():
+        if len(number) == 6:
+            left_sum = sum([int(x) for x in number[:3]])
+            right_sum = sum([int(x) for x in number[3:]])
+            return left_sum == right_sum
+        else:
+            print("Ошибка: не ожидал 6 значное число")
+    else:
+        print("Ошибка: не ожидал число, но у вас есть символы")
+
+# Еще  решение.
+number = input('Введите шестизначное число')
+sum_1 = 0
+sum_2 = 0
+
+for i in range(len(number)):
+    if i <= 2:
+        sum_1 += int(number[i])
+    else:
+        sum_2 += int(number[i])
+
+if sum_1 == sum_2:
+    print('Ура! билет счастливый')
+else:
+    print('Блин, не повезло(')
